@@ -1,0 +1,122 @@
+:root { 
+    --main-color:  #FEBE10;
+    --secondary-color: #cc0000;
+    --text-color: white;
+    --background-color: #020307;
+    }
+
+*{
+    font-family: "Poppins", sans-serif;
+    padding: 0;
+    margin: 0;  
+    font-size: 13px;
+    box-sizing: border-box;
+    font-weight: 500;  
+    font-style: normal;
+    scroll-padding-top: 2rem;
+    scroll-behavior: smooth;
+}
+
+
+body {
+    background-color: var(--background-color);
+    color: var(--text-color);
+    max-width: 100%;
+    min-height: 80vh;
+    overflow-x: hidden;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    background-size: cover;
+    background-position: center;
+}
+.container {
+    position: relative;
+    max-width: 100%;
+    margin: 50px auto;
+    padding: 20px;
+    background-color: #fff;
+    border: 5px solid var(--main-color);
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.main-container{
+    display: block;
+    margin: 150px auto;
+    
+}
+h2 {
+    padding-top: 20px;
+    font-size: 20px;
+    text-align: left;
+    font-weight: bold;
+    color: black;
+}
+
+.btn {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #007bff;
+    border: none;
+    border-radius: 5px;
+    color: #fff;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.btn-primary {
+    margin-top: 20px;
+    background-color: var(--main-color);
+}
+
+.btn-primary:hover {
+    background-color: #F4BB44;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+th, td {
+    color: black;
+    padding: 10px;
+    border-bottom: 1px solid #ddd;
+    text-align: left;
+}
+
+th {
+    background-color: #f2f2f2;
+}
+
+td:last-child {
+    text-align: center  ;
+}
+
+.btn-sm {
+    margin-top: 5px;
+    margin-bottom: 5px;
+    padding: 5px 10px;
+    font-size: 14px;
+}
+
+.btn-danger {
+    background-color: #dc3545;
+}
+
+.btn-danger:hover {
+    background-color: #c82333;
+}
+
+.icon-close {
+    position: absolute;
+    top: 2px;
+    right: 15px;
+    font-size: 30px;
+    cursor: pointer;
+    color: #dc3545; /* Change the color as needed */
+}
+
+

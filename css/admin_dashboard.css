@@ -1,0 +1,37 @@
+:root { 
+    --main-color:  #FEBE10 ;
+    --secondary-color: #cc0000;
+    --text-color: white ;
+    --background-color: #020307;
+}
+
+*{
+    font-family: "Poppins", sans-serif;
+    padding: 0;
+    margin: 0;  
+    font-size: 13px;
+    box-sizing: border-box;
+    font-weight: 500;  
+    font-style: normal;
+    scroll-padding-top: 2rem;
+    scroll-behavior: smooth;
+}
+
+.welcome{
+    font-size: 100px;
+}
+
+
+.landing_page {
+    background-color: var(--background-color);
+    font-size: 100px;
+    color: var(--text-color);
+    max-width: 100%;    
+    overflow-x: hidden;
+    display: flex;
+    justify-content: center; 
+    align-items: center; 
+    min-height: 80vh; 
+    background-size: cover;
+    background-position: center;
+}

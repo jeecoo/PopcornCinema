@@ -1,0 +1,412 @@
+:root { 
+    --main-color:  #FEBE10 ;
+    --secondary-color: #cc0000;
+    --text-color: white ;
+    --background-color: #020307;
+}
+.header {
+    background-color: var(--background-color);
+    position: fixed;
+    width: 100%;
+    top: 0;
+    left: 0;
+    padding: 30px 100px;
+    display: flex;
+    justify-content: space-between;
+    transition: 0.5s;
+    align-items: center;
+    z-index: 99;
+    color: var(--main-color);
+    font-family: "Poppins", sans-serif; 
+    font-size: 13px;
+    box-sizing: border-box;
+    font-weight: 500;  
+    font-style: normal;
+    scroll-padding-top: 2rem;
+    scroll-behavior: smooth;
+} 
+
+.logo {
+    padding-top: 10px;
+    max-width: 200px;
+    height: auto;
+    align-items: center;
+}
+
+.menu{
+    margin:10px;
+    display: flex;
+    align-items: center;
+}
+
+.menu ul{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.menu li a{
+    position: relative;
+    color: var(--text-color);
+    text-decoration: none;
+    margin-right: 60px;
+}
+
+.menu li{
+    align-items: center;
+}
+.menu li a::after {
+    content: '';
+    position: absolute;
+    bottom: -5px;
+    left: 0;
+    width: 0;
+    height: 3px; 
+    background-color: var(--main-color);
+    transition: width 0.3s ease;
+}
+
+.menu a.active {
+    color: var(--main-color);
+}
+
+.menu li.active a::after {
+    width: 100%;
+}
+
+.menu a:hover::after {
+    width: 100%;
+}
+
+
+.menu a{
+    text-decoration: none;
+    color: var(--text-color)
+}
+
+.menu li.active a {
+    color: var(--main-color);
+}
+
+
+
+
+
+.all-btn{
+    display: flex;
+    column-gap: 0.5rem;
+    list-style-type: none;
+}
+
+.all-btn li{
+    align-items: center;
+    justify-content: center;
+}
+.all-btn a{
+    text-decoration: none;
+    color: var(--text-color)
+}
+
+.login_btn{
+    padding: 1rem 2rem;
+    color: var(--text-color);
+    background-color: var(--secondary-color);
+    border-radius: 0.6rem;
+    transition: background-color 0.2s ease-in-out, border-color 0.2s ease-in-out;
+}
+
+.reg_btn{
+    padding: 1rem 2rem;
+    color: var(--text-color);
+    background-color: var(--secondary-color);
+    border-radius: 0.6rem;
+    transition: background-color 0.2s ease-in-out, border-color 0.2s ease-in-out;
+}
+
+.login_btn:hover { 
+    padding: 1rem 2rem;
+    background-color: var(--main-color);
+    color: var(--background-color);
+    cursor: pointer;;
+    transition: background-color 0.2s ease-in-out, border-color 0.2s ease-in;
+}
+
+.reg_btn:hover { 
+    padding: 1rem 2rem;
+    background-color: var(--main-color);
+    color: var(--background-color);
+    cursor: pointer;;
+}
+
+
+.wrapper-container {
+    font-family: "Poppins", sans-serif;
+    padding: 0;
+    margin: 0;  
+    font-size: 13px;
+    box-sizing: border-box;
+    font-weight: 500;  
+    font-style: normal;
+    scroll-padding-top: 2rem;
+    scroll-behavior: smooth;
+    position: relative;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    background: transparent;
+    align-items: center;
+    background-color: #020307;
+    backdrop-filter: blur(20px);
+    box-shadow: 0 0 30px rgba(0, 0, 0, .5);
+    z-index: 1000;
+    border-radius: 20px;
+}
+
+
+.wrapper {
+    width: 500px; /* Adjust the width as needed */
+    height: auto;
+    background: transparent;
+    border: 4px solid var(--main-color);
+    border-radius: 20px;
+    backdrop-filter: blur(20px);
+    box-shadow: 0 0 30px rgba(0, 0, 0, .5);
+    overflow: hidden;
+    transform: scale(1);
+    transition: transform .5s ease, height .2s ease;
+    z-index: 1000;
+}
+
+
+.wrapper .form-box{
+    width: 100%;
+    padding: 40px;
+    /* border-radius: 50px; */
+}
+
+.wrapper .icon-close{
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 45px;
+    height: 45px;
+    background: var(--secondary-color);
+    font-size: 20px;    
+    color: var(--text-color);
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    border-bottom-left-radius: 20px;
+    cursor: pointer;
+    z-index: 2;
+    transition: background-color 0.2s ease-in-out, border-color 0.2s ease-in;
+}
+.wrapper .icon-close:hover{
+    background: var(--main-color);
+}
+
+.form-box h2{
+    font-size: 2em;
+    font-weight: bold   ;
+    color: var(--main-color);
+    text-align: center;
+
+}
+
+.input-box{
+    position: relative;
+    width: 100%;
+    height: 50px;
+    border-bottom: 2px solid var(--main-color);
+    margin: 30px 0;
+
+}
+
+.input-box label{
+    position: absolute;
+    top: 50%;
+    left: 5px;
+    transform: translateY(-50%);
+    font-size: 1em;
+    color: var(--main-color);
+    font-weight: 500;
+    pointer-events: none;
+    transition: .5s;
+}
+
+.input-box input:focus ~ label,
+.input-box input:not(:placeholder-shown) ~ label,
+.input-box input:valid ~ label,
+.input-box label.active {
+    top: -5px;
+}
+.input-box input{
+    width: 100%;
+    height: 100%;
+    background: transparent;
+    border: none;
+    outline: none;
+    font-size: 1em;
+    color: var(--text-color);
+    font-weight: 600;
+    padding: 0 35px 0 5px;
+}
+
+.input-box .icon{
+    position: absolute;
+    right: 8px;
+    font-size: 1.2em;
+    color: var(--main-color);
+    line-height: 57px;
+
+}
+
+.loginbtn{
+    width: 100%;
+    height: 45px;
+    background-color: var(--secondary-color);
+    border: none;
+    outline: none;
+    border-radius: 0.6rem;
+    cursor: pointer;
+    font-size: 1em;
+    color: var(--text-color);
+    font-weight: 500;
+    transition: background-color 0.2s ease-in-out, border-color 0.2s ease-in;
+}
+
+.loginbtn:hover{
+    background-color: var(--main-color);
+}
+
+.login-register{
+    font-size: 1em;
+    color: var(--text-color);
+    text-align: center;
+    font-weight: 500;
+    margin: 25px 0 10px;
+
+}
+
+.login-register p a{
+    color: var(--main-color);
+    text-decoration: none;
+    text-align: none;
+    font-weight: 600;
+
+}
+
+.login-register p a:hover{
+    text-decoration: underline;
+}
+
+
+.exit_btn{
+    margin-left: 50px;
+    padding: 1rem 1rem 0.5rem 1rem;
+    color: var(--text-color);
+    background-color: var(--secondary-color);
+    border-radius: 0.6rem;
+    transition: background-color 0.2s ease-in-out, border-color 0.2s ease-in;
+}
+
+.exit_btn:hover { 
+    padding: 1rem 1rem 0.5rem 1rem;
+    background-color: var(--main-color);
+    color: var(--background-color);
+    cursor: pointer;;
+
+    /* border-radius: 2rem;
+    border: 2px solid var(--main-color); */
+}
+
+/* CSS for person-circle button */
+.user_btn {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    margin-left: auto;
+    align-items: center;
+}
+
+.user_btn p{
+    align-items: center;
+    justify-content: center;
+}
+
+.user_btn .profile-container {
+    width: 40px; /* Adjust as needed */
+    height: 40px; /* Adjust as needed */
+    border-radius: 50%; /* Makes the container circular */
+    overflow: hidden; /* Hides overflow content (image) outside the container */
+    position: relative;
+    margin-right: 10px;
+}
+
+.user_btn .profile-container img {
+    width: 100%; /* Ensures the image fills the container */
+    height: 100%; /* Ensures the image fills the container */
+    object-fit: cover; /* Ensures the image covers the container */
+}
+
+.user_btn span {
+    margin-top: 10px;
+    display: flex;
+    align-items: center;
+    color: white; /* Adjust text color as needed */
+}
+
+
+.user_btn:hover span {
+    display: inline-block;
+}
+
+.user-exit{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+:root { 
+    --main-color:  #FEBE10 ;
+    --secondary-color: #cc0000;
+    --text-color: white ;
+    --background-color: #020307;
+}
+
+*{
+    font-family: "Poppins", sans-serif;
+    padding: 0;
+    margin: 0;  
+    font-size: 13px;
+    box-sizing: border-box;
+    font-weight: 500;  
+    font-style: normal;
+    scroll-padding-top: 2rem;
+    scroll-behavior: smooth;
+}
+
+.welcome{
+    font-size: 100px;
+}
+
+.landing_page h1{
+    font-size: 100px;
+}
+
+.landing_page {
+    background-color: var(--background-color);
+    font-size: 100px;
+    color: var(--text-color);
+    max-width: 100%;    
+    overflow-x: hidden;
+    display: flex;
+    justify-content: center; 
+    align-items: center; 
+    min-height: 80vh; 
+    background-size: cover;
+    background-position: center;
+}

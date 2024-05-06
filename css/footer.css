@@ -1,0 +1,66 @@
+:root { 
+    --main-color:  #FEBE10 ;
+    --secondary-color: #cc0000;
+    --text-color: white ;
+    --background-color: #020307;
+}
+
+
+footer {
+    background-color: var(--background-color);
+    backdrop-filter: blur(5px);
+    height: fit-content;
+    display: flex;
+    justify-content: center;
+    padding: 30px 100px;
+    gap: 10%;
+    align-items: center;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    /* border-top: 1px solid var(--main-color); */
+    font-family: "Poppins", sans-serif; 
+    font-size: 13px;
+    box-sizing: border-box;
+    font-weight: 500;  
+    font-style: normal;
+    scroll-padding-top: 2rem;
+    scroll-behavior: smooth;
+}
+
+
+#popcorn {
+    width: 300px;
+}
+
+#citlogo {
+    width: 200px;
+}
+
+
+.box1 h1 {
+    font-size: 20px;
+    font-weight: bold;
+    text-align: center;
+}
+.box1 p {
+    font-size: 20px;
+    font-weight: 300;
+    color:var(--text-color);
+}
+.box1 ul li {
+    padding-left: 20px;
+    list-style:inside;
+}
+
+
+.box2 {
+    justify-content: center;
+    align-items: center;
+    width: 20%;
+}
+.box2 h1 {
+    font-size: 40px;
+    font-weight: bold;
+    text-align: center;
+}
