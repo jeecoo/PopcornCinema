@@ -7,8 +7,8 @@
 
     if(isset($_GET['id'])) {
         $movieId = $_GET['id'];
-        $sql = "DELETE FROM tblmovie WHERE movieid = $movieId";
-        
+        $sql = "UPDATE tblmovie SET isDeleted = 1 WHERE movieid = $movieId";
+
         if ($connection->query($sql) === TRUE) {
             echo "Record deleted successfully";
             // Redirect back to the movie list page

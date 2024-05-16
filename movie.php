@@ -48,7 +48,7 @@
                     die("Connection failed: " . $connection->connect_error);
                 }
 
-                $sql = "SELECT * FROM tblmovie";
+                $sql = "SELECT * FROM tblmovie WHERE isDeleted = 0";
                 $result = $connection->query($sql);
                 
                 if(!$result){

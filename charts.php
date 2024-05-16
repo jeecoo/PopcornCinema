@@ -40,7 +40,7 @@
             <?php
                 include 'connect.php';
 
-                $genreDistributionQuery = "SELECT genre, COUNT(*) as count FROM tblmovie GROUP BY genre";
+                $genreDistributionQuery = "SELECT genre, COUNT(*) as count FROM tblmovie WHERE isDeleted = 0 GROUP BY genre";
                 $genreDistributionResult = $connection->query($genreDistributionQuery);
 
                 $genreLabels = [];

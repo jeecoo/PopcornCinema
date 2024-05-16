@@ -48,7 +48,7 @@
                             die("Connection failed: " . $connection->connect_error);
                         }
 
-                        $avgDurationByGenreQuery = "SELECT genre, AVG(TIME_TO_SEC(duration))/60 AS average_duration_minutes FROM tblmovie GROUP BY genre";
+                        $avgDurationByGenreQuery = "SELECT genre, AVG(TIME_TO_SEC(duration))/60 AS average_duration_minutes FROM tblmovie WHERE isDeleted = 0 GROUP BY genre";
                         $avgDurationByGenreResult = $connection->query($avgDurationByGenreQuery);
                         
                         if(!$avgDurationByGenreResult){
@@ -94,7 +94,7 @@
                         die("Connection failed: " . $connection->connect_error);
                     }
 
-                    $longestMoviesByGenreQuery = "SELECT genre, title, duration FROM tblmovie WHERE (genre, duration) IN (SELECT genre, MAX(duration) FROM tblmovie GROUP BY genre)";
+                    $longestMoviesByGenreQuery = "SELECT genre, title, duration FROM tblmovie WHERE isDeleted = 0 AND (genre, duration) IN (SELECT genre, MAX(duration) FROM tblmovie GROUP BY genre)";
                     $longestMoviesByGenreResult = $connection->query($longestMoviesByGenreQuery);
                     
                     if(!$longestMoviesByGenreResult){
@@ -140,7 +140,7 @@
                         die("Connection failed: " . $connection->connect_error);
                     }
 
-                    $longestMoviesByGenreQuery = "SELECT genre, title, duration FROM tblmovie WHERE (genre, duration) IN (SELECT genre, MIN(duration) FROM tblmovie GROUP BY genre)";
+                    $longestMoviesByGenreQuery = "SELECT genre, title, duration FROM tblmovie WHERE isDeleted = 0 AND (genre, duration) IN (SELECT genre, MIN(duration) FROM tblmovie GROUP BY genre)";
                     $longestMoviesByGenreResult = $connection->query($longestMoviesByGenreQuery);
                     
                     if(!$longestMoviesByGenreResult){
@@ -184,7 +184,7 @@
                         die("Connection failed: " . $connection->connect_error);
                     }
 
-                    $moviesReleasedPerYearQuery = "SELECT YEAR(releasedate) AS release_year, COUNT(*) AS num_movies FROM tblmovie GROUP BY YEAR(releasedate)";
+                    $moviesReleasedPerYearQuery = "SELECT YEAR(releasedate) AS release_year, COUNT(*) AS num_movies FROM tblmovie WHERE isDeleted = 0 GROUP BY YEAR(releasedate)";
                     $moviesReleasedPerYearResult = $connection->query($moviesReleasedPerYearQuery);
                     
                     if(!$moviesReleasedPerYearResult){
@@ -207,44 +207,81 @@
         </div>
 
 
-
-
             <div class="table" style="margin-bottom:80px;">
-            <h2>Total Number of Movies by Genre</h2>
-            <br>
-            <table>
-                <thead>
-                    <tr>
-                        <th>Genre</th>
-                        <th>Total Number</th>
-                    </tr>
-                </thead>
-                <tbody>
-                <?php
-                    include 'connect.php';
-
-                    if($connection->connect_error){
-                        die("Connection failed: " . $connection->connect_error);
-                    }
-
-                    $sql = "SELECT genre, COUNT(*) AS total FROM tblmovie GROUP BY genre";
-                    $result = $connection->query($sql);
-                    
-                    if(!$result){
-                        die("Invalid query: " . $connection->error);
-                    }
-
-                    while($row = $result->fetch_assoc()){
-                        echo "
+                <h2>Total Number of Movies by Genre</h2>
+                <br>
+                <table>
+                    <thead>
                         <tr>
-                        <td>{$row['genre']}</td>
-                        <td>{$row['total']}</td>
+                            <th>Genre</th>
+                            <th>Total Number</th>
                         </tr>
-                        ";
-                    }
-                ?>
-                </tbody>
-            </table>
+                    </thead>
+                    <tbody>
+                    <?php
+                        include 'connect.php';
+
+                        if($connection->connect_error){
+                            die("Connection failed: " . $connection->connect_error);
+                        }
+
+                        $sql = "SELECT genre, COUNT(*) AS total FROM tblmovie WHERE isDeleted = 0 GROUP BY genre" ;
+                        $result = $connection->query($sql);
+                        
+                        if(!$result){
+                            die("Invalid query: " . $connection->error);
+                        }
+
+                        while($row = $result->fetch_assoc()){
+                            echo "
+                            <tr>
+                            <td>{$row['genre']}</td>
+                            <td>{$row['total']}</td>
+                            </tr>
+                            ";
+                        }
+                    ?>
+                    </tbody>
+                </table>
+            </div>  
+
+            
+            <div class="table" style="margin-bottom:80px;">
+                <h2>Total Number of Movies by Duration</h2>
+                <br>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Duration Category (Hours)</th>
+                            <th>Total Movies</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <?php
+                            $durationCategoriesQuery = "
+                                SELECT 
+                                    CONCAT(HOUR(duration), ' Hours') AS duration_category,
+                                    COUNT(*) AS total_movies
+                                FROM 
+                                    tblmovie
+                                WHERE isDeleted = 0
+                                GROUP BY 
+                                    HOUR(duration);
+                            ";
+
+                            // Execute the query
+                            $durationCategoriesResult = $connection->query($durationCategoriesQuery);
+
+                            // Display the results
+                            while ($row = $durationCategoriesResult->fetch_assoc()) {
+                                echo "<tr>";
+                                echo "<td>" . $row['duration_category'] . "</td>";
+                                echo "<td>" . $row['total_movies'] . "</td>";
+                                echo "</tr>";
+                            }
+                        ?>
+                    </tbody>
+                </table>
             </div>  
         </div>
     </div>    
