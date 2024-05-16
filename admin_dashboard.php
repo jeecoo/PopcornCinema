@@ -24,7 +24,7 @@
 <body>
     <section class = "hero" style="min-height:10vh;margin-top:65px;">
         <div class="landing_page">
-                  <h1 class="welcome">WELCOME ADMIN!!</h1 style="color:black;font-size:100px;">
+                  <h1 class="welcome">ADMIN DASHBOARD</h1 style="color:black;font-size:100px;">
         </div>
     </section>
   </body>

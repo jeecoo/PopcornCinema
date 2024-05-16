@@ -55,7 +55,7 @@
                     >
                         <span class="navbar-toggler-icon"></span>
                     </button>
-                    <div class="menu" class="collapse navbar-collapse" id="collapsibleNavId">
+                    <!-- <div class="menu" class="collapse navbar-collapse" id="collapsibleNavId">
                         <ul class="nav justify-content-center">
                         <li class="nav-item active">
                             <a class="home" class="nav-link active" href="#">Home</a>
@@ -71,16 +71,19 @@
                         </li>
                         <li class="nav-item">
                             <a class="contact-us" class="nav-link" href="contact.php">Contact</a>
-                        </li>
+                        </li> -->
                         <!-- <li class="nav-item">
                             <a class="nav-link disabled" aria-disabled="true">Disabled</a>
                         </li> -->
-                        </ul>
-                    </div>
+                        <!-- </ul>
+                    </div> -->
                     <div class="all-btn">
-                    <a href="report.php"><div class="movie_btn" id="movie_btn">Report</div></a>
-                    <a href="movie.php"><div class="movie_btn" id="movie_btn">Dashboard</div></a>
-                    
+                        <a href="movie.php"><div class="movie_btn" id="movie_btn">Movies</div></a>
+                        <a href="tables.php"><div class="movie_btn" id="movie_btn">Tables</div></a>
+                        <a href="statistics.php"><div class="movie_btn" id="movie_btn">Statistics</div></a> 
+                        <a href="charts.php"><div class="movie_btn" id="movie_btn">Charts</div></a>   
+                    </div> 
+                    <div> 
                     <a href="index.php"><div class="exit_btn" id="exit_btn">
                     <ion-icon name="exit" style="font-size: 20px;"></ion-icon></div>
                    </a>

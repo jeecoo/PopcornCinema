@@ -50,7 +50,7 @@
                         die("Connection failed: " . $connection->connect_error);
                     }
 
-                    $sql = "SELECT * FROM tblmovie WHERE genre='Action'";
+                    $sql = "SELECT * FROM tblmovie WHERE genre='Comedy'";
                     $result = $connection->query($sql);
                     
                     if(!$result){
@@ -99,7 +99,7 @@
 
 
                     $sql = "SELECT * FROM tblmovie WHERE releasedate='2025-02-28'";
-                    $result = $connection->query($sql);
+                    $result = $connection->query($sql); 
                     
                     if(!$result){
                         die("Invalid query: " . $connection->error);
@@ -140,7 +140,6 @@
                         die("Connection failed: " . $connection->connect_error);
                     }
 
-                    // Modify the SQL query to count the occurrences of each genre and group them by genre
                     $sql = "SELECT genre, COUNT(*) AS total FROM tblmovie GROUP BY genre";
                     $result = $connection->query($sql);
                     
