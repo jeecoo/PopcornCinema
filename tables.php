@@ -50,7 +50,7 @@
                         die("Connection failed: " . $connection->connect_error);
                     }
 
-                    $sql = "SELECT * FROM tblmovie WHERE genre='Comedy'";
+                    $sql = "SELECT * FROM tblmovie WHERE isDeleted = 0 AND genre='Comedy'";
                     $result = $connection->query($sql);
                     
                     if(!$result){
@@ -98,7 +98,7 @@
                     }
 
 
-                    $sql = "SELECT * FROM tblmovie WHERE releasedate='2025-02-28'";
+                    $sql = "SELECT * FROM tblmovie WHERE isDeleted = 0 AND releasedate='2025-02-28'";
                     $result = $connection->query($sql); 
                     
                     if(!$result){
@@ -140,7 +140,7 @@
                         die("Connection failed: " . $connection->connect_error);
                     }
 
-                    $sql = "SELECT genre, COUNT(*) AS total FROM tblmovie GROUP BY genre";
+                    $sql = "SELECT genre, COUNT(*) AS total FROM tblmovie WHERE isDeleted = 0 GROUP BY genre";
                     $result = $connection->query($sql);
                     
                     if(!$result){
